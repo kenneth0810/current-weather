@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% if data["image"] == "day" %}
+<style>
+    body {
+        background-image: url(../static/day.png);
+    }
+</style>
+{% elif data["image"] == "afternoon" %}
+<style>
+    body {
+        background-image: url(../static/afternoon.png);
+    }
+</style>
+{% elif data["image"] == "night" %}
+<style>
+    body {
+        background-image: url(../static/night.png);
+    }
+</style>
+{% endif %}
+<title>{{ data["city"] }}, {{ data["state"] }}{{ data["country"] }}</title>
+{% endblock %}
+
+{% block body %}
+<div class="weather-details">
+    <div class="details-left">
+        <p>Low</p>
+        <p>High</p>
+        <p>Wind</p>
+        <p>Humidity</p>
+        <p>Sunrise</p>
+        <p>Sunset</p>
+    </div>
+    <div class="details-right">
+        <p>{{ data["low"] }}°C</p>
+        <p>{{ data["high"] }}°C</p>
+        <p>{{ data["wind"] }}m/s</p>
+        <p>{{ data["humidity"] }}%</p>
+        <p>{{ data["sunrise"] }}</p>
+        <p>{{ data["sunset"] }}</p>
+    </div>
+</div>
+<!-- Closing div tag below connects to which div? Webpage does not show properly when it is commented out. -->
+<!-- Probably because of extends from base.html -->
+</div>
+<div class="section-right">
+    <div class="weather-card">
+        <p class="temp">
+            <img src="http://openweathermap.org/img/wn/{{ data['icon'] }}@4x.png" alt="Image"> {{ data["temp"] }}°C
+        </p>
+        <p class="location">
+            {{ data["city"] }}, {{ data["state"] }}{{ data["country"] }} {{ data["time_hour"] }}{{data["time_minute"]}}
+        </p>
+        <p class="description">
+            {{ data["description"] }}
+        </p>
+    </div>
+</div>
+{% endblock %}

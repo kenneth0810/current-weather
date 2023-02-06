@@ -1,0 +1,141 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+body {
+    background-image: linear-gradient(rgb(50, 99, 191), rgb(240, 208, 178));
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-left {
+    color: white;
+    width: 40vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(20px);
+    box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.45);
+}
+
+.search input[type=text] {
+    width: 65%;
+    height: 40px;
+    border: none;
+    padding: 18px;
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.556);
+    color: white;
+    margin-left: 10%;
+    transition: 0.2s;
+}
+
+.search input[type=text]:focus {
+    outline: none;
+    border-bottom: solid 1px white;
+}
+
+.search button {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.608);
+    width: 80px;
+    height: 80px;
+    border: none;
+    background-color: rgb(158, 229, 229);
+    font-size: 25px;
+    transition: 0.2s;
+}
+
+.search button:hover {
+    cursor: pointer;
+    background-color: rgb(193, 249, 249);
+    transform: scale(1.03);
+    color: black;
+}
+
+.section-left .prompt {
+    text-align: center;
+    padding: 5%;
+}
+
+.section-left form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.weather-details {
+    color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20% ;
+    padding-left: 13%;
+    padding-right: 13%;
+    font-size: 25px;
+    width: 40vw;
+}
+
+.details-left,
+.details-right {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.section-right {
+    color: white;
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weather-card {
+    width: 90%;
+    background-color: rgba(20, 20, 20, 0.4);
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    box-shadow: 5px 5px 13px black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10%;
+    transition: 0.2s;
+}
+
+.weather-card:hover {
+    transform: scale(1.01);
+}
+
+.temp {
+    display: flex;
+    align-items: center;
+    font-size: 90px;
+}
+
+.location {
+    font-size: 40px;
+}
+
+.description {
+    text-transform: capitalize;
+    font-size: 20px;
+}
