@@ -1,15 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for
+import json
 import requests
 import datetime
 import time
 
 app = Flask(__name__)
 
+def get_key():
+    with open("key.json", "r") as file:
+        data = json.load(file)
+        key = data["key"]
+
+        return key
 
 # Argument is passed in from an HTML form in base.html
 # JSON contains coordinates and other location data
 def get_coordinates(location):
-    url = f"http://api.openweathermap.org/geo/1.0/direct?q={location}&limit=5&appid=6cfc80704392243545d62c289f23e5ad"
+    key = get_key()
+    url = f"http://api.openweathermap.org/geo/1.0/direct?q={location}&limit=5&appid={key}"
     req = requests.get(url).json()
     return req
 
@@ -17,7 +25,8 @@ def get_coordinates(location):
 # JSON contains various weather, time, and location data
 # Calling this API using coordinates provides more precision and is more reliable than calling by city names, according to documentation
 def get_weather(lat, lon):
-    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=6cfc80704392243545d62c289f23e5ad&units=metric"
+    key = get_key()
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={key}&units=metric"
     req = requests.get(url).json()
     return req
 
